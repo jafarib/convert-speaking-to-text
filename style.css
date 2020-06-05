@@ -8,7 +8,7 @@ body {
 }
 
 body.orange {
-  background-color: #ffcc00;
+  background-color: #ff7b00;
 }
 
 .container{
@@ -19,4 +19,5 @@ body.orange {
     min-height: 150px;
     border-radius: 10px;
     box-shadow: 0 10px 10px 0 rgba(0,0,0,0.2);
+    direction: rtl;
 }
