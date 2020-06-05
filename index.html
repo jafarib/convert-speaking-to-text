@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Convert speak to text</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-
-    </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container"></div>
     <script>
-        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      window.SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
 
-        const recognition = new SpeechRecognition();
-        recognition.lang = "fa-IR";
-        recognition.interimResults = true;
-        recognition.start();
+      const recognition = new SpeechRecognition();
+      recognition.lang = "fa-IR";
+      recognition.interimResults = true;
+      recognition.start();
 
-        recognition.addEventListener('result',(e) => {
-            let transcript = Array.from(e.results);
-            console.log(transcript);
-        })
-        console.log(recognition)
+      recognition.addEventListener("end", recognition.start);
 
+      recognition.addEventListener("result", (e) => {
+        let transcript = Array.from(e.results)
+          .map((result) => {
+            return result[0];
+          })
+          .map((result) => {
+            return result.transcript;
+          })
+          .join(" ");
 
+        console.log(transcript);
+      });
     </script>
-</body>
+  </body>
 </html>
