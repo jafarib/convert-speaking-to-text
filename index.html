@@ -52,6 +52,7 @@
           recognition.lang = 'en-Us';
           transcript = '';
             p = document.createElement('p');
+            p.setAttribute('contenteditable', true);
             p.setAttribute('dir','ltr');
             container.appendChild(p);
         }
@@ -61,6 +62,7 @@
           recognition.lang = 'fa-IR';
           transcript = '';
             p = document.createElement('p');
+            p.setAttribute('contenteditable', true);
             p.setAttribute('dir','rtl');
             container.appendChild(p);
         }
@@ -73,6 +75,7 @@
         if (transcript.includes("برو به خط بعدی") && e.results[0].isFinal) {
           transcript = "";
           p = document.createElement("p");
+          p.setAttribute('contenteditable', true);
           container.appendChild(p);
         }
 
