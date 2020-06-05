@@ -20,7 +20,8 @@
         recognition.start();
 
         recognition.addEventListener('result',(e) => {
-            console.log(e);
+            let transcript = Array.from(e.results);
+            console.log(transcript);
         })
         console.log(recognition)
 
